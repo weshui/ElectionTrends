@@ -58,6 +58,8 @@ class Filter:
         return self.SearchInArray(self.issues,hashTags)
 
     def SearchInArray(self,searchFor,searchIn):
+        if (searchFor == None or searchIn == None):
+            return False
         for searchTerm in searchFor:
             if( searchTerm in searchIn):
                 return True
