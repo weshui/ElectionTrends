@@ -11,4 +11,13 @@
 	<IssueTags
 		data="BlackLivesMatter,CampaignZero,StopGunViolence,GunControl,HillaryEmails,IStandWithPP,
 	ClimateChange,GlobalWarming,Syria,StudentLoanForgiveness,StudentLoanDebt" />
+	<Mapping> 
+	   <Map name="Ben Carson" words="Carson" hashTag="BC2DC16,ImWithBen,Carson2016,BenCarson" user="RealBenCarson" />
+	   <Map name="Ted Cruz" words="Cruz" hashTag="ATimeForTruth,CruzCrew,TedCruz" user="tedcruz" />
+	   <Map name="Marco Rubio" words="Rubio" hashTag="TeamMarcoFL,
+	TeamMarcoPA,TeamMarcoSC,TeamMarco,MarcoRubio" user="marcorubio" />
+	   <Map name="Donald Trump" words="Trump" hashTag="Trump,DonaldTrump,Trump2016,DonaldTrumpforPresient" user="realDonaldTrump" />
+	   <Map name="Hillary Clinton" words="Clinton" hashTag="Hillary2016,HillaryClinton" user="HillaryClinton" />
+	   <Map name="Bernie Sanders" words="Sanders" hashTag="BernieSanders,BernieSanders2016,Sanders2016,feelthebern" user="BernieSanders" />
+	</Mapping>
 </Filter>
