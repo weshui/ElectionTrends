@@ -3,6 +3,10 @@
 import json
 from datetime import datetime
 from dateutil import parser
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+sid = SentimentIntensityAnalyzer()
+
+
 class Tweet:
     
     def __init__(self,tweet_json):
@@ -54,3 +58,22 @@ class Tweet:
         
     def GetLocation(self):
         return self.location
+
+    def GetSentiment(self):
+        sentiments = sid.polarity_scores("The food is delicious")
+        return (sentiments["pos"], sentiments["neg"])
+
+
+    def createObj(self):
+        obj = {}
+        obj["location"] = self.GetLocation()
+        obj["text"] = self.GetTweet()
+        obj["user_mentions"] = self.GetUserMentions()
+        obj["hashtags"] = self.GetHashTags()
+        obj["sentiment"] = self.GetSentiment()
+        obj["date"] = self.GetDate()
+        return obj
+
+    def dumpSentimentJSON(self, fname):
+        with open(fname, "a") as outFile:
+            myfile.write(json.dumps(outFile))
