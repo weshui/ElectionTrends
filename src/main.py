@@ -10,14 +10,17 @@ def calculate_and_dump_sentiment():
             fname = './../../tweets/{}/{}.json'.format(month, "%02d" % day)
             if not exists(fname):
                 continue
-            print "Starting", month, day
+            print "Starting", month, day, "..."
             reader = TweetReader.TweetReader(fname)
             save_fname = fname[:-5] + '_filtered_analyzed' + fname[-5:]
+            numTweets = 0
             while True:
                 curr_tweet = reader.next()
                 if curr_tweet is None:
                     break
                 curr_tweet.dumpSentimentJSON(save_fname)
+                numTweets += 1
+            print "Analyzed", numTweets, "tweets ..."
 
 
 def filter_tweets():

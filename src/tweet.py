@@ -59,7 +59,7 @@ class Tweet:
         return self.location
 
     def GetSentiment(self):
-        sentiments = sid.polarity_scores("The food is delicious")
+        sentiments = sid.polarity_scores(self.GetTweet())
         return (sentiments["pos"], sentiments["neg"])
 
     def createObj(self):
@@ -74,4 +74,7 @@ class Tweet:
 
     def dumpSentimentJSON(self, fname):
         with open(fname, "a") as outFile:
-            outFile.write(json.dumps(self.createObj()))
+            obj = self.createObj()
+            if obj["sentiment"] != (0.0, 0.0):
+                outFile.write(json.dumps(obj))
+                outFile.write('\n')
