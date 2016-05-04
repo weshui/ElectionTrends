@@ -98,7 +98,7 @@ def plot_popularity():
             obj_cand = {'x': x_candidate, 'y': y_candidate,
                         'line': {'color': colors[ind], 'width': 3},
                         "marker": {"line": {"width": 2}, "size": 12, "symbol": "square"},
-                        "mode": "lines+markers",
+                        "mode": "lines",
                         "name": name,
                         "type": "scatter"}
 
