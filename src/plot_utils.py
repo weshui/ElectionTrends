@@ -30,7 +30,7 @@ def read_xml(xml_file_path):
 def popularity_vs_time():
     candidates = read_xml('./filter.xml')
     popularity = defaultdict(lambda: defaultdict(int))
-    for month in ['Feb', 'Mar']:
+    for month in ['Feb', 'Mar', 'Apr']:
         for day in range(1, 31):
             fname = './../../tweets/{}/analyzed/{}.json'.format(
                 month, "%02d" % day)
