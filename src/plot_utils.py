@@ -104,7 +104,13 @@ def plot_popularity():
 
             ind += 1
             data.append(obj_cand)
-    fig = dict(data=data)
+    layout = dict(
+            yaxis=dict(
+                type='log',
+                autorange=True
+        )
+    )
+    fig = dict(data=data, layout=layout)
     url = plotly.offline.plot(fig, 'popularity')
 
 
