@@ -75,6 +75,5 @@ class Tweet:
     def dumpSentimentJSON(self, fname):
         with open(fname, "a") as outFile:
             obj = self.createObj()
-            if obj["sentiment"] != (0.0, 0.0):
-                outFile.write(json.dumps(obj))
-                outFile.write('\n')
+            outFile.write(json.dumps(obj))
+            outFile.write('\n')
