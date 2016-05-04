@@ -105,7 +105,28 @@ def plot_popularity():
             ind += 1
             data.append(obj_cand)
     layout = dict(
+            title='Popularity of Candidates',
+            titlefont=dict(
+                size=42
+            ),
+            xaxis=dict(
+                tickfont=dict(
+                    family='Old Standard TT, serif',
+                    size=24,
+                    color='black'
+                ),
+                )
+            ,
             yaxis=dict(
+                title='# of tweets',
+                titlefont=dict(
+                    size=32
+                ),
+                tickfont=dict(
+                    family='Old Standard TT, serif',
+                    size=24,
+                    color='black'
+                ),
                 type='log',
                 autorange=True
         )
