@@ -5,7 +5,7 @@ from os.path import exists
 
 
 def calculate_and_dump_sentiment():
-    for month in ['Mar']:
+    for month in ['Feb', 'Mar']:
         for day in range(1, 31):
             fname = './../../tweets/{}/{}.json'.format(month, "%02d" % day)
             if not exists(fname):
