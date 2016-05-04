@@ -86,7 +86,6 @@ def plot_popularity():
               'darkmagenta', 'lightsalmon', 'lightseagreen', 'orchid', 'turquoise']
     candidates = read_xml('./filter.xml')
     ind = 0
-    plt.ylabel('# tweets')
     data = []
     for name in candidates:
         with open(name + '_popularity.csv') as pop_file:
