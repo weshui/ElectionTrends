@@ -3,6 +3,10 @@ from collections import defaultdict
 from os.path import exists
 import json
 from dateutil import parser
+from datetime import datetime
+import plotly.plotly as py
+from plotly.graph_objs import *
+import plotly
 
 
 def read_xml(xml_file_path):
@@ -76,4 +80,33 @@ def get_popularity_one_file(fname, candidates):
         print "Analyzed", numTweets, "tweets ..."
     return popularity
 
-print popularity_vs_time()
+
+def plot_popularity():
+    colors = ['deepskyblue', 'mediumslateblue', 'tomato', 'darkslateblue',
+              'darkmagenta', 'lightsalmon', 'lightseagreen', 'orchid', 'turquoise']
+    candidates = read_xml('./filter.xml')
+    ind = 0
+    plt.ylabel('# tweets')
+    data = []
+    for name in candidates:
+        with open(name + '_popularity.csv') as pop_file:
+            x_candidate = []
+            y_candidate = []
+            for line in pop_file:
+                [month, day, num_tweets] = line.split('\t')
+                x_candidate.append(datetime(2016, month, day))
+                y_candidate.append(num_tweets)
+            obj_cand = {'x': x_candidate, 'y': y_candidate,
+                        'line': {'color': colors[ind], 'width': 3},
+                        "marker": {"line": {"width": 2}, "size": 12, "symbol": "square"},
+                        "mode": "lines+markers",
+                        "name": name,
+                        "type": "scatter"}
+
+            ind += 1
+            data.append(obj_cand)
+    fig = dict(data=data)
+    url = plotly.offline.plot(fig, 'popularity')
+
+
+plot_popularity()
