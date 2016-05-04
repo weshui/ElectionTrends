@@ -93,7 +93,7 @@ def plot_popularity():
             y_candidate = []
             for line in pop_file:
                 [month, day, num_tweets] = line.split('\t')
-                x_candidate.append(datetime(2016, month, day))
+                x_candidate.append(datetime(2016, int(month), int(day)))
                 y_candidate.append(num_tweets)
             obj_cand = {'x': x_candidate, 'y': y_candidate,
                         'line': {'color': colors[ind], 'width': 3},
