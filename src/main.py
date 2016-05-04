@@ -12,7 +12,8 @@ def calculate_and_dump_sentiment():
                 continue
             print "Starting", month, day, "..."
             reader = TweetReader.TweetReader(fname)
-            save_fname = fname[:-5] + '_filtered_analyzed' + fname[-5:]
+            save_fname = '/'.join(fname.split('/')[:5] + ['analyzed'] + fname.split('/')[5:])
+            #save_fname = fname[:-5] + '_filtered_analyzed' + fname[-5:]
             numTweets = 0
             while True:
                 curr_tweet = reader.next()
@@ -24,7 +25,6 @@ def calculate_and_dump_sentiment():
 
 
 def filter_tweets():
-
     filePath = "/Users/anirudhnair/Dropbox/WORK/lecNotes/cs410/project/test.json"
     configXml = "/Users/anirudhnair/Documents/workspace/TwitterAnalysis/filter.xml"
     outFile = "/Users/anirudhnair/Dropbox/WORK/lecNotes/cs410/project/test_out.json"
